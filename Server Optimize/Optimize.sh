@@ -7,9 +7,6 @@ set -euo pipefail
 LOG_FILE="/var/log/server-optimization.log"
 BACKUP_DIR="/root/system_backup"
 
-# ipinfo.io API token
-IPINFO_TOKEN="a65a04deb5407f"
-
 # 定义全局变量
 declare release=""
 declare -i cpu_cores=0
@@ -53,7 +50,7 @@ check_root() {
 check_location() { 
     OUT_INFO "[信息] 正在检查服务器位置..."
     
-    if ! location_info=$(curl -s "https://ipinfo.io?token=${IPINFO_TOKEN}"); then
+    if ! location_info=$(curl -s "https://ipinfo.io"); then
         OUT_ERROR "[错误] 无法获取位置信息，默认使用国际配置"
         server_country="UNKNOWN"
         server_region="UNKNOWN"
