@@ -514,8 +514,8 @@ main() {
     
     # 可选功能（可以注释掉不需要的部分）
     install_requirements
-    configure_dns
-    configure_ntp
+    #configure_dns
+    #configure_ntp
     optimize_system
     configure_rc_local
     
